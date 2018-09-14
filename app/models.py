@@ -20,6 +20,7 @@ class User(db.Model,UserMixin):
     pass_key = db.Column(db.String(255))
     profile_pic_path = db.Column(db.String(255))
     user_pitch = db.relationship('Pitches', backref='user', lazy='dynamic')
+    role_id = db.Column(db.Integer, db.ForeignKey('roles.id'))
 
     def save_user(self):
         db.session.add(self)
@@ -36,6 +37,13 @@ class User(db.Model,UserMixin):
     def verify_password(self, password):
         return check_password_hash(self.pass_key, password)
 
+class Role(db.Model):
+    __tablename__ = 'roles'
+    id = db.Column(db.Integer, primary_key=True)
+    role = db.Column(db.String(255))
+    user_role = the_comment = db.relationship('User', backref='role', lazy="dynamic")
+
+
 
 class Post(db.Model):
     __tablename__ = 'posts'
@@ -43,7 +51,7 @@ class Post(db.Model):
     title = db.Column(db.String(255))
     post = db.Column(db.String(255))
     posted = db.Column(db.DateTime, default=datetime.utcnow)
-    the_comment = db.relationship('Comments', backref='pitch', lazy="dynamic")
+    the_comment = db.relationship('Comments', backref='post', lazy="dynamic")
     poster = db.Column(db.Integer, db.ForeignKey('users.id'))
 
 
@@ -62,9 +70,6 @@ class Comments(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     comment = db.Column(db.String(255))
     pitch_comment = db.Column(db.Integer, db.ForeignKey('pitches.id'))
-
-
-
 
 
 

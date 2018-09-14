@@ -13,7 +13,7 @@ bootstrap=Bootstrap()
 db = SQLAlchemy()
 login_manager = LoginManager()
 login_manager.session_protection = 'strong'
-login_manager.login_view = 'auth.login'
+login_manager.login_view = 'userAuth.login'
 photos = UploadSet('photos',IMAGES)
 mail = Mail()
 simple = SimpleMDE()
@@ -43,8 +43,11 @@ def create_app(config_name):
     from .main import main as main_blueprint
     app.register_blueprint(main_blueprint)
 
-    from .auth import auth as auth_blueprint
-    app.register_blueprint(auth_blueprint, url_prefix='/authenticate')
+    from .userAuth import userAuth as userAuth_blueprint
+    app.register_blueprint(userAuth_blueprint, url_prefix='/sub')
+
+    from .adminAuth import adminAuth as adminAuth_blueprint
+    app.register_blueprint(adminAuth_blueprint, url_prefix='/blogger')
 
     # configure UploadSet
     configure_uploads(app, photos)
