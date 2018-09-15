@@ -51,7 +51,7 @@ class Blog(db.Model):
 
 
 class Mailer(db.Model):
-    __tablename__ = 'mailerss'
+    __tablename__ = 'mailers'
     id = db.Column(db.Integer, primary_key=True)
     emails = db.Column(db.String(255))
     name = db.Column(db.String(255))

@@ -1,6 +1,6 @@
 from flask import render_template,request,redirect,url_for,abort,flash
 from . import main
-from ..models import User,Comments,Post,Role
+from ..models import User,Comments, Blog, Mailer
 from .. import db,photos
 # from .forms import
 from flask_login import login_required,current_user
@@ -12,18 +12,18 @@ def home():
     View function to render the index html template, that directs users to select their log in
     '''
 
-    return render_template('home.html',)
+    return render_template('home.html')
 
-@main.route('/pitch/<int:id>')
-def pitch(id):
+@main.route('/post/<int:id>')
+def blogpost(id):
     '''
     View function to view a pitch
     '''
-    the_pitch = Pitches.query.get(id)
-    if the_pitch is None:
+    the_blogpost = Blog.query.get(id)
+    if the_blogpost is None:
         abort(404)
 
-    the_pitches = markdown2.markdown(the_pitch.pitch, extras=["code-friendly", "fenced-code-blocks"])
+    the_pitches = markdown2.markdown(the_blogpost.pitch, extras=["code-friendly", "fenced-code-blocks"])
     commentss = Comments.get_comments(id)
 
-    return render_template('pitch.html',pitch = pitch, the_pitch = the_pitch, comments = commentss)
+    return render_template('post.html')
