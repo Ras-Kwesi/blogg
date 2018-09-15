@@ -1,7 +1,7 @@
 from flask import render_template,redirect,url_for,flash,request,abort
 from . import auth
-from ..models import User
-from .forms import LoginForm,RegistrationForm,UpdateProfile
+from ..models import User, Blog, Comments, Mailer
+from .forms import LoginForm,RegistrationForm,UpdateProfile,NewPost
 from .. import db
 from flask_login import login_user,logout_user,login_required
 import markdown2
@@ -58,16 +58,16 @@ def update_profile(uname):
 
     return render_template('profile/update.html',form =form)
 
-@auth.route('/user/<uname>/update/pic',methods= ['POST'])
-@login_required
-def update_pic(uname):
-    user = User.query.filter_by(username = uname).first()
-    if 'photo' in request.files:
-        filename = photos.save(request.files['photo'])
-        path = f'photos/{filename}'
-        user.profile_pic_path = path
-        db.session.commit()
-    return redirect(url_for('main.profile',uname=uname))
+# @auth.route('/user/<uname>/update/pic',methods= ['POST'])
+# @login_required
+# def update_pic(uname):
+#     user = User.query.filter_by(username = uname).first()
+#     if 'photo' in request.files:
+#         filename = photos.save(request.files['photo'])
+#         path = f'photos/{filename}'
+#         user.profile_pic_path = path
+#         db.session.commit()
+#     return redirect(url_for('main.profile',uname=uname))
 
 
 
@@ -79,11 +79,11 @@ def new_pitch():
     '''
     View function to create a new pitch
     '''
-    form = NewPitch()
+    form = NewPost()
     if form.validate_on_submit():
 
 
-        new_pitch = Pitches(title = form.title.data,pitch = form.a_pitch.data,category = form.category.data)
+        new_post = Blog(title = form.title.data, post = form.post.data)
 
         new_pitch.save_pitch()
         return redirect(url_for('main.index'))

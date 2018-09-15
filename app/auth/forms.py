@@ -34,6 +34,6 @@ class UpdateProfile(FlaskForm):
 
 class NewPost(FlaskForm):
     title = StringField('Title :',validators=[Required()])
-    a_post = TextAreaField('New Post',validators=[Required()])
+    post = TextAreaField('New Post',validators=[Required()])
     submit = SubmitField('Submit', validators=[Required()])
 
