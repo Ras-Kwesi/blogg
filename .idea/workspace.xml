@@ -2,26 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="85c7c84c-2d38-40f3-8546-c5943cd44ad6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/adminAuth/login.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/adminAuth/navbar.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/adminAuth/register.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/new_comment.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/new_comment.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/new_post.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/new_post.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/post.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/post.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/profile/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/profile/profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/profile/update_profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/profile/update_profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/userAuth/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/auth/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/userAuth/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/auth/navbar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/userAuth/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/auth/register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manage.py" beforeDir="false" afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/test_blogs.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_blogs.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_comments.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_comments.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_user.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_user.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -106,11 +87,11 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/tests/test_blogs.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="390">
-                  <caret line="26" column="43" lean-forward="true" selection-start-line="9" selection-start-column="8" selection-end-line="26" selection-end-column="43" />
+                <state relative-caret-position="300">
+                  <caret line="20" column="33" lean-forward="true" selection-start-line="20" selection-start-column="33" selection-end-line="20" selection-end-column="33" />
                   <folding>
                     <element signature="e#0#15#0" expanded="true" />
                   </folding>
@@ -127,14 +108,11 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/tests/test_comments.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="405">
-                  <caret line="27" column="4" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="4" />
-                  <folding>
-                    <element signature="e#0#15#0" expanded="true" />
-                  </folding>
+                <state>
+                  <caret lean-forward="true" />
                 </state>
               </provider>
             </entry>
@@ -293,9 +271,9 @@
         <option value="$PROJECT_DIR$/app/templates/auth/login.html" />
         <option value="$PROJECT_DIR$/app/templates/auth/register.html" />
         <option value="$PROJECT_DIR$/tests/test_user.py" />
-        <option value="$PROJECT_DIR$/tests/test_blogs.py" />
         <option value="$PROJECT_DIR$/app/models.py" />
         <option value="$PROJECT_DIR$/tests/test_comments.py" />
+        <option value="$PROJECT_DIR$/tests/test_blogs.py" />
       </list>
     </option>
   </component>
@@ -414,7 +392,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.3294979" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.3294979" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.3297414" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -598,9 +576,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/test_mails.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/templates/auth/login.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
@@ -647,20 +622,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/test_blogs.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" column="43" lean-forward="true" selection-start-line="9" selection-start-column="8" selection-end-line="26" selection-end-column="43" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/tests/test_mails.py">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/test_comments.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="4" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="4" />
+        <state>
+          <caret lean-forward="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/test_blogs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="33" lean-forward="true" selection-start-line="20" selection-start-column="33" selection-end-line="20" selection-end-column="33" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
