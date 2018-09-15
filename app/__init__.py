@@ -46,9 +46,6 @@ def create_app(config_name):
     from .userAuth import userAuth as userAuth_blueprint
     app.register_blueprint(userAuth_blueprint, url_prefix='/sub')
 
-    from .adminAuth import adminAuth as adminAuth_blueprint
-    app.register_blueprint(adminAuth_blueprint, url_prefix='/blogger')
-
     # configure UploadSet
     configure_uploads(app, photos)
 

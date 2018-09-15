@@ -1,15 +1,14 @@
-from flask import render_template,redirect,url_for,flash,request
+from flask import render_template,redirect,url_for,flash,request,abort
 from . import auth
 from ..models import User
-from .forms import UserLoginForm,UserRegistrationForm
+from .forms import LoginForm,RegistrationForm,UpdateProfile
 from .. import db
-from flask_login import login_user,logout_user,login_required,current_user
+from flask_login import login_user,logout_user,login_required
 import markdown2
-
 
 @auth.route('/login',methods=['GET','POST'])
 def login():
-    login_form = UserLoginForm()
+    login_form = LoginForm()
     if login_form.validate_on_submit():
         user = User.query.filter_by(email = login_form.email.data).first()
         if user is not None and user.verify_password(login_form.password.data):
@@ -19,7 +18,7 @@ def login():
         flash('Invalid Email or Password')
 
     title = " login"
-    return render_template('adminAuth/login.html',login_form = login_form,title=title)
+    return render_template('auth/login.html',login_form = login_form,title=title)
 
 
 @auth.route('/logout')
@@ -32,16 +31,15 @@ def logout():
 
 @auth.route('/register',methods = ["GET","POST"])
 def register():
-    form = UserRegistrationForm()
+    form = RegistrationForm()
     if form.validate_on_submit():
         user = User(email = form.email.data, username = form.username.data,password = form.password.data)
         user.save_user()
-        return redirect(url_for('adminAuth.login'))
+        return redirect(url_for('auth.login'))
     title = "New Account"
-    return render_template('adminAuth/register.html',registration_form = form, title = title)
+    return render_template('auth/register.html',registration_form = form, title = title)
 
-
-@main.route('/user/<uname>/update',methods = ['GET','POST'])
+@auth.route('/user/<uname>/update',methods = ['GET','POST'])
 @login_required
 def update_profile(uname):
     user = User.query.filter_by(username = uname).first()
@@ -60,7 +58,7 @@ def update_profile(uname):
 
     return render_template('profile/update.html',form =form)
 
-@main.route('/user/<uname>/update/pic',methods= ['POST'])
+@auth.route('/user/<uname>/update/pic',methods= ['POST'])
 @login_required
 def update_pic(uname):
     user = User.query.filter_by(username = uname).first()
@@ -73,19 +71,33 @@ def update_pic(uname):
 
 
 
-@main.route('/pitch/<int:id>')
-def pitch(id):
+
+
+@auth.route('/pitch/add', methods = ['GET','POST'])
+@login_required
+def new_pitch():
     '''
-    View function to view a pitch
+    View function to create a new pitch
     '''
-    the_pitch = Pitches.query.get(id)
-    if the_pitch is None:
-        abort(404)
-
-    the_pitches = markdown2.markdown(the_pitch.pitch, extras=["code-friendly", "fenced-code-blocks"])
-    commentss = Comments.get_comments(id)
-
-    return render_template('pitch.html',pitch = pitch, the_pitch = the_pitch, comments = commentss)
+    form = NewPitch()
+    if form.validate_on_submit():
 
 
+        new_pitch = Pitches(title = form.title.data,pitch = form.a_pitch.data,category = form.category.data)
 
+        new_pitch.save_pitch()
+        return redirect(url_for('main.index'))
+
+    title = "I Pitch"
+
+    return render_template('new_pitch.html', title = title, pitch_form = form)
+
+@auth.route('/')
+def index():
+
+    '''
+    Home page for the blogger
+    '''
+
+
+    return render_template('index.html')

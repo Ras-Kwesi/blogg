@@ -3,13 +3,13 @@ from wtforms.validators import Required,Email,EqualTo
 from..models import User
 from wtforms import StringField,PasswordField,BooleanField,SubmitField,ValidationError,TextAreaField
 
-class AdminLoginForm(FlaskForm):
+class LoginForm(FlaskForm):
     email = StringField('Your Email Address',validators=[Required(),Email()])
     password = PasswordField('Password',validators =[Required()])
     remember = BooleanField('Remember me')
     submit = SubmitField('Sign In')
 
-class AdminRegistrationForm(FlaskForm):
+class RegistrationForm(FlaskForm):
     email = StringField('Your Email Address',validators=[Required(),Email()])
     username = StringField('Enter your username',validators = [Required()])
     password = PasswordField('Password',validators = [Required(),
@@ -27,7 +27,7 @@ class AdminRegistrationForm(FlaskForm):
             raise ValidationError('That username is taken')
 
 
-class AdminUpdateProfile(FlaskForm):
+class UpdateProfile(FlaskForm):
     bio = TextAreaField('Tell us about you.',validators = [Required()])
     submit = SubmitField('Submit')
 
