@@ -20,8 +20,7 @@ class User(db.Model,UserMixin):
     pass_key = db.Column(db.String(255))
     profile_pic_path = db.Column(db.String(255))
     user_pitch = db.relationship('Pitches', backref='user', lazy='dynamic')
-    role_id = db.Column(db.Integer, db.ForeignKey('roles.id'))
-    # is_admin = db.Column(db.Boolean, default=False)
+
 
     def save_user(self):
         db.session.add(self)
@@ -43,10 +42,17 @@ class User(db.Model,UserMixin):
 class Blog(db.Model):
     __tablename__ = 'blogs'
     id = db.Column(db.Integer, primary_key=True)
-    blog = db.Column(db.String(255))
+    post = db.Column(db.String(255))
     user_pitch = db.relationship('Comments', backref='blog', lazy='dynamic')
 
+    def save_blog(self):
+        db.session.add(self)
+        db.session.commit()
 
+    @classmethod
+    def get_blog(cls, id):
+        blog = Blog.query.filter_by(poster=id).all()
+        return blog
 
 
 
@@ -72,7 +78,7 @@ class Comments(db.Model):
     __tablename__="comments"
     id = db.Column(db.Integer, primary_key=True)
     comment = db.Column(db.String(255))
-    pitch_comment = db.Column(db.Integer, db.ForeignKey('blog.id'))
+    blog_comment = db.Column(db.Integer, db.ForeignKey('blogs.id'))
 
 
 
