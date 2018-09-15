@@ -29,6 +29,9 @@ class RegistrationForm(FlaskForm):
 
 class UpdateProfile(FlaskForm):
     bio = TextAreaField('Tell us about you.',validators = [Required()])
+    age = TextAreaField('How old are you.',validators = [Required()])
+    career = TextAreaField('Career field.',validators = [Required()])
+    nationality = TextAreaField('Whats youre Nationality',validators = [Required()])
     submit = SubmitField('Submit')
 
 

@@ -1,0 +1,30 @@
+
+
+
+<nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+  <a class="navbar-brand" href="/">Blo-tech</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" href="/">Home<span class="sr-only">(current)</span></a>
+      <!--<a class="nav-item nav-link" href="#"></a>-->
+      <!--<a class="nav-item nav-link" href="#">Pricing</a>-->
+      <!--<a class="nav-item nav-link disabled" href="#">Disabled</a>-->
+    </div>
+  </div>
+    <ul class="nav navbar-nav navbar-right">
+          {% if current_user.is_authenticated %}
+            <li><a href="{{url_for('auth.profile',uname=current_user.username)}}">Profile</a></li>
+
+            <li><a class="btn btn-cyan" href="{{url_for('auth.new_post')}}">POST</a> </li>
+
+
+
+            <li><a href="{{url_for('auth.logout')}}">Sign out</a></li>
+          {% else %}
+          <li><a href="{{url_for('auth.login')}}">Become a Blogger</a></li>
+          {%endif%}
+        </ul>
+</nav>

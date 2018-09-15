@@ -27,3 +27,17 @@ def blogpost(id):
     commentss = Comments.get_comments(id)
 
     return render_template('post.html')
+
+
+
+@main.route('/')
+def index():
+
+    '''
+    Home page for the blogger
+    '''
+
+    blogs = Blog.query.all()
+
+
+    return render_template('index.html',blogs = blogs)

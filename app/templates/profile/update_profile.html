@@ -4,5 +4,12 @@
 {% block content %}
 <div class="container">
   {{wtf.quick_form(form)}}
+  {% if user == current_user %}
+            <form  action="{{url_for('auth.update_pic',uname=user.username)}}" method="post" enctype = "multipart/form-data">
+
+                <input type="file"  name="photo" class="form-control" required>
+                <input type="submit">
+            </form>
+            {% endif %}
 </div>
 {% endblock %}

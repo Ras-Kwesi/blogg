@@ -14,12 +14,14 @@ class User(db.Model,UserMixin):
     __tablename__ = 'users'
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(255), index=True)
-    age = db.Column(db.Integer)
+    age = db.Column(db.String(255))
+    career = db.Column(db.String(255))
+    nationality = db.Column(db.String(255))
     email = db.Column(db.String(255), unique=True, index=True)
     bio = db.Column(db.String(255))
     pass_key = db.Column(db.String(255))
     profile_pic_path = db.Column(db.String(255))
-    user_pitch = db.relationship('Pitches', backref='user', lazy='dynamic')
+    user_pitch = db.relationship('Blog', backref='user', lazy='dynamic')
 
 
     def save_user(self):
@@ -43,7 +45,10 @@ class Blog(db.Model):
     __tablename__ = 'blogs'
     id = db.Column(db.Integer, primary_key=True)
     post = db.Column(db.String(255))
-    user_pitch = db.relationship('Comments', backref='blog', lazy='dynamic')
+    title = db.Column(db.String(255))
+    comments = db.relationship('Comments', backref='blog', lazy='dynamic')
+    blog_admin = db.Column(db.Integer, db.ForeignKey('users.id'))
+
 
     def save_blog(self):
         db.session.add(self)
@@ -51,7 +56,7 @@ class Blog(db.Model):
 
     @classmethod
     def get_blog(cls, id):
-        blog = Blog.query.filter_by(poster=id).all()
+        blog = Blog.query.filter_by(blog_admin=id).all()
         return blog
 
 

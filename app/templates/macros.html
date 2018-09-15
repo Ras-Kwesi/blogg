@@ -1,0 +1,12 @@
+{% macro displayblog(blogs_list) %}
+
+{% for blog in blogs_list %}
+
+<div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title">{{blog.title}}</h5>
+        <p class="card-text">{{blog.post}}</p>
+    </div>
+</div>
+{% endfor %}
+{% endmacro %}
