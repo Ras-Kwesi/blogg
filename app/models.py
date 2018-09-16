@@ -59,6 +59,10 @@ class Blog(db.Model):
         blog = Blog.query.filter_by(blog_admin=id).all()
         return blog
 
+    def delete_blog(self):
+        db.session.remove(self)
+        db.session.commit()
+
 
 
 class Mailer(db.Model):
