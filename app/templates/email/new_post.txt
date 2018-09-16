@@ -1,3 +1,2 @@
-Hello {{mail.name}}
+Hello
 An new post is up on my blog.
-{{new_post.title}}

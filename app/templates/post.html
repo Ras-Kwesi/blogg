@@ -3,10 +3,10 @@
 {% block content %}
 
 <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
-    <div class="card-header">{{the_pitch.title}}</div>
+    <div class="card-header">{{blogpost.title}}</div>
     <div class="card-body">
-        <h5 class="card-title">{{the_pitch.pitch}}</h5>
-        <a class="btn btn-primary" href="/pitch/new_comment/{{the_pitch.id}}">ADD COMMENT</a>
+        <h5 class="card-title">{{blogpost.post}}</h5>
+        <a class="btn btn-primary" href="/pitch/new_comment/{{blogpost.id}}">ADD COMMENT</a>
     </div>
 
 </div>

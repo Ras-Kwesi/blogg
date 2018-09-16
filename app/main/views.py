@@ -19,14 +19,15 @@ def blogpost(id):
     '''
     View function to view a pitch
     '''
-    the_blogpost = Blog.query.get(id)
-    if the_blogpost is None:
+    blogpost = Blog.query.get(id)
+    if blogpost is None:
         abort(404)
 
-    the_pitches = markdown2.markdown(the_blogpost.pitch, extras=["code-friendly", "fenced-code-blocks"])
+
+
     commentss = Comments.get_comments(id)
 
-    return render_template('post.html')
+    return render_template('post.html', blogpost = blogpost)
 
 @main.route('/pitch/new_comment/<id>', methods = ['GET','POST'])
 def new_comments(id):
@@ -52,6 +53,8 @@ def index():
     '''
     Home page for the blogger
     '''
+    user = current_user
+    blogs = Blog.query.all()
     subscription_form = SubscribeForm()
     if subscription_form.validate_on_submit():
         new_subscriber = Mailer(name= subscription_form.comment.data, emaails = subscription_form.email.data)
@@ -60,8 +63,14 @@ def index():
         return redirect(url_for('main.index'))
 
 
-    blogs = Blog.query.all()
 
 
 
-    return render_template('index.html',blogs = blogs, subscription = subscription_form)
+
+    return render_template('index.html',blogs = blogs, subscription = subscription_form, user = user)
+
+@main.route('/')
+def deleteblog():
+    '''
+    View function to delete our blog post
+    '''

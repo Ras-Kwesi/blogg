@@ -84,6 +84,8 @@ def new_post():
     '''
     View function to create a new pitch
     '''
+
+    user = current_user
     form = NewPost()
     if form.validate_on_submit():
 
@@ -92,7 +94,7 @@ def new_post():
 
         new_post.save_blog()
 
-        mail_message("Welcome to one-pitch", "email/welcome_user", user.email, user=user)
+        mail_message("Welcome to one-pitch", "email/new_post", user.email, user=user)
         return redirect(url_for('main.index'))
 
 

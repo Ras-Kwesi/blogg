@@ -10,7 +10,7 @@ from wtforms import StringField,PasswordField,BooleanField,SubmitField,Validatio
 class SubscribeForm(FlaskForm):
     email = StringField('Your Email Address',validators=[Required(),Email()])
     name =  StringField('Your Username Please',validators=[Required(),Email()])
-    submit = SubmitField('Sign In')
+    submit = SubmitField('Sign Me Up')
 
 class CommentForm(FlaskForm):
     email = StringField('Your Email Address',validators=[Required(),Email()])

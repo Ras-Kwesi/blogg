@@ -5,8 +5,10 @@
 <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
     <div class="card-body">
         <h5 class="card-title">{{blog.title}}</h5>
-        <p class="card-text">{{blog.post}}</p>
+        <p class="card-text">{{blog.post | truncate(20)}}</p>
     </div>
+        <a class="btn btn-primary" href="{{url_for('main.blogpost',id=blog.id) }}"> {{blog.title | truncate (10)}}</a>
+
 </div>
 {% endfor %}
 {% endmacro %}
