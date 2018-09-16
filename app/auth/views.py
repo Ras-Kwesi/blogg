@@ -94,7 +94,7 @@ def new_post():
 
         new_post.save_blog()
 
-        mail_message("Welcome to one-pitch", "email/new_post", user.email, user=user)
+        # mail_message("Welcome to one-pitch", "email/new_post", user.email, user=user)
         return redirect(url_for('main.index'))
 
 
@@ -105,6 +105,7 @@ def new_post():
 
 
 @auth.route('/user/<uname>')
+@login_required
 def profile(uname):
     user = User.query.filter_by(username = uname).first()
 
@@ -112,3 +113,20 @@ def profile(uname):
         abort(404)
 
     return render_template("profile/profile.html", user = user)
+
+@auth.route('/delete/<id>')
+@login_required
+def deleteblog(id):
+
+    '''
+    View function to delete our blog post
+    '''
+
+    # post = Blog.query.get(id)
+    post = Blog.query.filter_by(id=id).first()
+
+    post.delete_blog()
+
+    return redirect(url_for('main.index'))
+
+

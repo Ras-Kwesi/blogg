@@ -19,6 +19,8 @@ def blogpost(id):
     '''
     View function to view a pitch
     '''
+
+    user = current_user
     blogpost = Blog.query.get(id)
     if blogpost is None:
         abort(404)
@@ -27,7 +29,7 @@ def blogpost(id):
 
     comments = Comments.get_comments(id)
 
-    return render_template('post.html', blogpost = blogpost, comments = comments)
+    return render_template('post.html', blogpost = blogpost, comments = comments, user = user)
 
 @main.route('/pitch/new_comment/<id>', methods = ['GET','POST'])
 def new_comments(id):
@@ -69,8 +71,3 @@ def index():
 
     return render_template('index.html',blogs = blogs, subscription = subscription_form, user = user)
 
-@main.route('/')
-def deleteblog():
-    '''
-    View function to delete our blog post
-    '''

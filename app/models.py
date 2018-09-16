@@ -60,7 +60,7 @@ class Blog(db.Model):
         return blog
 
     def delete_blog(self):
-        db.session.remove(self)
+        db.session.delete(self)
         db.session.commit()
 
 

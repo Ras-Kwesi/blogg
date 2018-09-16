@@ -7,6 +7,9 @@
     <div class="card-body">
         <h5 class="card-title">{{blogpost.post}}</h5>
         <a class="btn btn-primary" href="/pitch/new_comment/{{blogpost.id}}">ADD COMMENT</a>
+        {% if user.is_authenticated %}
+        <a class="btn btn-danger" href="{{url_for('auth.deleteblog',id=blogpost.id )}}">DELETE POST</a>
+        {% endif %}
     </div>
 
 </div>
