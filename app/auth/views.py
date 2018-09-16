@@ -94,7 +94,7 @@ def new_post():
 
         new_post.save_blog()
 
-        mail_message("Welcome to one-pitch", "email/new_post", user.email, user=user)
+        # mail_message("Welcome to one-pitch", "email/new_post", user.email, user=user)
         return redirect(url_for('main.index'))
 
 
