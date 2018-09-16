@@ -10,14 +10,25 @@
 </head>
 {% extends 'base.html'%}
 {% import 'macros.html' as macro%}
+{% import "bootstrap/wtf.html" as wtf %}
+
 
 
 <body>
 {% block content %}
 
-<h2> Pitches </h2>
+<h2> My Blogs </h2>
+<p> New here ?, </p>
+<br>
+   <p> please subscribe</p>
+<div>
+    {{ wtf.quick_form(subscription) }}
+</div>
 
 {{ macro.displayblog(blogs) }}
+
+
+
 
 
 
