@@ -8,13 +8,13 @@ from wtforms import StringField,PasswordField,BooleanField,SubmitField,Validatio
 
 
 class SubscribeForm(FlaskForm):
-    email = StringField('Your Email Address',validators=[Required(),Email()])
-    name =  StringField('Your Username Please',validators=[Required(),Email()])
-    submit = SubmitField('Sign Me Up', validators=[Required()])
+    email = StringField('Your Email Address',validators=[Required()])
+    name =  StringField('Your Username Please',validators=[Required()])
+    submit = SubmitField('Sign Me Up')
 
 class CommentForm(FlaskForm):
-    email = StringField('Your Email Address',validators=[Required(),Email()])
-    comment = TextAreaField("You're thoughts on this post: ",validators=[Required(),Email()])
-    submit = SubmitField('Comment', validators=[Required()])
+    email = StringField('Your Email Address',validators=[Required()])
+    comment = TextAreaField("You're thoughts on this post: ",validators=[Required()])
+    submit = SubmitField('Comment')
 
 
