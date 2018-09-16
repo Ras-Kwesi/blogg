@@ -8,27 +8,29 @@ Blog is a Python project that uses Database to store blogs of blogers and subscr
 ## User Stories
 
 As a user I would like:
-* Get to see various sources to select a newsfeed from.
-* Get to see news articles from the various news sources
+* Get to see various blogs
+* Get to comment on a blog
+* Get to view other comments
+* Get to subscribe to a blog
 
-##Behaviours
-
-| Behaviour |  Input   |   Output    |  
-| :--------------------- | :-------------------------: | ----------------------: |
-| ##**** | **##** | ## |
+As a blogger I would like:
+* Get to see the blogs
+* Get to view Blog and option to delete
+* Get to see the Comments and delete comments
+* Get to View and update profile 
 
 
 
 ## Project Specification
--[x] View sample pitches on home page, and ability to navigate to specific categories.
--[x] View a pitch and it's comments.
--[x] Log in requirement to create a new pitch.
--[x] Sign up navigation from navogation bar and log in page.
+-[x] View blogs on descending order at index
+-[x] View a blog post
+-[x] Log in requirement to create a new post.
+-[x] Sign up navigation from navigation bar and log in page for blogging.
 -[x] Log out when logged in.
--[x] Add new pitch form page.
--[x] Add new comment on pitch, form page
+-[x] Add new blog form page for subscriber only.
+-[x] Add new comment on post page for users, while bloggers have delete post and comment option
 -[x] View logged-in user profile page.
--[x] Update profile page with bio and picture
+-[x] Update profile page with bio
 
 ### Installations & Prerequisites
 * python3.6
