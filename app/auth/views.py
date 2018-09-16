@@ -129,4 +129,19 @@ def deleteblog(id):
 
     return redirect(url_for('main.index'))
 
+@auth.route('/delete/comment/<id>')
+@login_required
+def deletecomment(id):
+
+    '''
+    View function to delete our blog post
+    '''
+
+    # post = Blog.query.get(id)
+    comment = Comments.query.filter_by(id=id).first()
+
+    comment.delete_comment()
+
+    return redirect(url_for('main.index'))
+
 
