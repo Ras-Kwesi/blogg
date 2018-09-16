@@ -25,9 +25,9 @@ def blogpost(id):
 
 
 
-    commentss = Comments.get_comments(id)
+    comments = Comments.get_comments(id)
 
-    return render_template('post.html', blogpost = blogpost)
+    return render_template('post.html', blogpost = blogpost, comments = comments)
 
 @main.route('/pitch/new_comment/<id>', methods = ['GET','POST'])
 def new_comments(id):
