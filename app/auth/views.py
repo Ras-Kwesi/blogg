@@ -6,6 +6,7 @@ from .. import db,photos
 from flask_login import login_user,logout_user,login_required
 import markdown2
 from flask_login import login_required,current_user
+from ..email import mail_message
 
 @auth.route('/login',methods=['GET','POST'])
 def login():
@@ -90,7 +91,11 @@ def new_post():
         new_post = Blog(title = form.title.data, post = form.post.data)
 
         new_post.save_blog()
+
+        mail_message("Welcome to one-pitch", "email/welcome_user", user.email, user=user)
         return redirect(url_for('main.index'))
+
+
 
     title = "New Post"
 
