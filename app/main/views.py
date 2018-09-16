@@ -34,16 +34,16 @@ def new_comments(id):
     '''
     View function to create a new comment to a pitch
     '''
-    pitch = Blog.query.filter_by(id=id).first()
+    post = Blog.query.filter_by(id=id).first()
     comment_form = CommentForm()
     if comment_form.validate_on_submit():
-        new_comment = Comments(comment=comment_form.comment.data, pitch_comment=id,)
+        new_comment = Comments(comment=comment_form.comment.data, blog_comment=id,)
         new_comment.save_comment()
 
         return redirect(url_for('main.index'))
-    title = 'What do you think about that pitch? '
+    title = 'What do you think about this Post? '
 
-    return render_template('new_comment.html',title = title,form=comment_form, pitch = pitch)
+    return render_template('new_comment.html',title = title,form=comment_form, post = post)
 
 
 
@@ -57,7 +57,7 @@ def index():
     blogs = Blog.query.all()
     subscription_form = SubscribeForm()
     if subscription_form.validate_on_submit():
-        new_subscriber = Mailer(name= subscription_form.comment.data, emaails = subscription_form.email.data)
+        new_subscriber = Mailer(name= subscription_form.comment.data, emails = subscription_form.email.data)
         new_subscriber.save_mail()
 
         return redirect(url_for('main.index'))
