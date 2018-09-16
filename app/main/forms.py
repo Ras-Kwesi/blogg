@@ -15,6 +15,6 @@ class SubscribeForm(FlaskForm):
 class CommentForm(FlaskForm):
     email = StringField('Your Email Address',validators=[Required(),Email()])
     comment = StringField("You're thoughts on this post: ",validators=[Required(),Email()])
-    submit = SubmitField('Comment')
+    submit = SubmitField('Comment', validators=[Required()])
 
 

@@ -100,3 +100,7 @@ class Comments(db.Model):
     def get_comments(cls, id):
         comments = Comments.query.filter_by(blog_comment=id).all()
         return comments
+
+    def delete_comment(self):
+        db.session.delete(self)
+        db.session.commit()

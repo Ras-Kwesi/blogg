@@ -38,11 +38,15 @@ def new_comments(id):
     '''
     post = Blog.query.filter_by(id=id).first()
     comment_form = CommentForm()
-    if comment_form.validate_on_submit():
-        new_comment = Comments(comment=comment_form.comment.data, blog_comment=id,)
-        new_comment.save_comment()
 
-        return redirect(url_for('main.index'))
+
+    if comment_form.validate_on_submit():
+        email = Mailer.query.filter_by(emails = comment_form.email.data).first()
+        if email is not None:
+            new_comment = Comments(comment=comment_form.comment.data, blog_comment=id,)
+            new_comment.save_comment()
+
+            return redirect(url_for('main.index'))
     title = 'What do you think about this Post? '
 
     return render_template('new_comment.html',title = title,form=comment_form, post = post)
