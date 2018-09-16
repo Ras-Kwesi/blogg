@@ -63,7 +63,7 @@ def index():
     Home page for the blogger
     '''
     user = current_user
-    blogs = Blog.query.all()
+    blogs = Blog.query.order_by(Blog.id.desc()).all()
     subscription_form = SubscribeForm()
     if subscription_form.validate_on_submit():
         new_subscriber = Mailer(name= subscription_form.name.data, emails = subscription_form.email.data)
