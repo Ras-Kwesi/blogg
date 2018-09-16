@@ -4,7 +4,7 @@ from app.models import Blog,Comments
 class TestPitches(unittest.TestCase):
 
     def setUp(self):
-        self.new_blog = Blog(title='Make it', pitch='We shall finish what we started')
+        self.new_blog = Blog(title='Make it', post='We shall finish what we started')
         self.new_comment = Comments(comment = "There is no other way")
 
     def tearDown(self):

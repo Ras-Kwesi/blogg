@@ -78,10 +78,10 @@ class Mailer(db.Model):
         db.session.add(self)
         db.session.commit()
 
-    # @classmethod
-    # def get_email(cls, id):
-    #     email = Mailer.query.filter_by(poster=id).all()
-    #     return email
+    @classmethod
+    def get_email(cls, ):
+        email = Mailer.query.all()
+        return email
 
 class Comments(db.Model):
     __tablename__="comments"
