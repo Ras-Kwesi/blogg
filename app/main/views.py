@@ -14,7 +14,7 @@ def home():
 
     message = 'Thank You for subscribing. Stay tuned for massive content. Watch this space!'
 
-    return render_template('home.html')
+    return render_template('home.html', message = message)
 
 @main.route('/post/<int:id>')
 def blogpost(id):
@@ -66,7 +66,7 @@ def index():
     blogs = Blog.query.all()
     subscription_form = SubscribeForm()
     if subscription_form.validate_on_submit():
-        new_subscriber = Mailer(name= subscription_form.comment.data, emails = subscription_form.email.data)
+        new_subscriber = Mailer(name= subscription_form.name.data, emails = subscription_form.email.data)
         new_subscriber.save_mail()
 
         return redirect(url_for('main.home'))
