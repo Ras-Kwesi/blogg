@@ -56,7 +56,7 @@ def new_comments(id):
 
 
 
-@main.route('/')
+@main.route('/', methods = ['GET','POST'])
 def index():
 
     '''
